@@ -1,0 +1,10 @@
+# syntax=docker/dockerfile:1.4
+
+FROM --platform=$BUILDPLATFORM python:3.7-slim AS builder
+EXPOSE 8000
+#ou les commande s'execute
+WORKDIR /app 
+COPY . /app 
+RUN pip3 install -r requirements.txt --no-cache-dir
+
+CMD ["python", "manage.py", "runserver", "0.0.0.0:8000"] 
