@@ -1,0 +1,24 @@
+{% extends "base.html" %}
+{% block main %}
+{% load static %}
+  <h1>LEADERBOARD</h1>
+
+<div class="table-wrapper paragraph">
+  <table class="fl-table">
+      <tbody>
+        {%  for post in joueurs %}
+      <tr>
+        <td>{{ post.position }}</td>
+          <td> <img src="/static/gif/{{ post.avatar }}"></td>
+          <td>{{ post.surnom }}</td>
+          <td>{{ post.point}}</td>
+      </tr>
+        {% endfor %}
+      <tbody>
+    </table>
+</div>
+
+
+
+</div>
+{% endblock %}

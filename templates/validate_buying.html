@@ -1,0 +1,38 @@
+{% extends "base.html" %}
+{% block main %}
+{% load static %}
+    <h1>Voulez vous vraiment acheter {{objet| safe}} pour <span class="paragraph" font="/static/font/epilogue.tff"> <font size="70">{{prix| safe}}</font></span> points ?</h1>
+    <h2>Il en reste : {{stock |safe}}</h2>
+    <img src="{{url| safe}}" alt="Objet" width="200" height="200">
+    <form action="/validatedbuying/{{id|safe}}" method="post">  {% csrf_token %}
+        <div class="flex justify-center">
+        <input class="button-paris align-left" type="submit" value="Oui">
+    </form>
+    <a class="button-paris" href="/shop/0">Non</a>
+  </div>
+
+        
+
+<!-- 
+<form action="/registerbet">
+  <div class="md:flex md:items-center mb-6 ">
+    <input name = "bet" placeholder= "Mise" class="bg-gray-200 appearance-none border-2 border-gray-200 rounded w-full py-2 px-4 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-green-500 text-center" id="inline-full-name" type="number">
+</div>
+<div class="flex justify-center"></div>
+  <input type="submit" value="Rouge" class="button-paris align-left" role="button" name="Rouge"> 
+  <input type="submit" value="Bleu" class="button-paris" role="button" name="Bleu">
+</form>-->
+</div> 
+
+<br>
+
+<form class="w-full max-w-sm flex flex-col justify-center items-center">
+
+ 
+  <div class="md:flex md:items-center">
+
+  </div>
+</form>
+
+<br>
+{% endblock %}

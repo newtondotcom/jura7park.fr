@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <link href="/static/css/juraspark.css" rel="stylesheet">
+  <link href="/static/css/main.css" rel="stylesheet">
+    
+  <title>Jura7Park</title>
+  <link rel="icon" href="/static/images/logo.png">
+</head>
+<body >
+  <div class="a max-w-[1227px] min-w-[407px] h-[1789px] mx-auto bg-[url('/static/images/fond.png')] bg-cover bg-center bg-no-repeat flex justify-center items-center ">
+
+  <div class="max-w-[407px] h-[1789px] flex flex-col  items-center">
+
+  <div class="max-w-[407px] h-[150px]">
+    
+    <div class="menu flex">
+      <a href="/" >Jura<span class="p7">7</span>park</a>
+      <a href="/shop/0">Magasin</a>
+      <a href="/myaccount">Mon Profil</a>
+      </div>
+  </div>
+  <div class="w-[407px] text-center flex text-lg flex-col items-center px-10"> 
+    {% block main %}{% endblock %}
+
+</div>
+</body>
+</html>
