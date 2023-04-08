@@ -1,0 +1,14 @@
+{% extends "base.html" %}
+{% block main %}
+  <h1>TU AS OBTENU ...</h1>
+  <div class="bg-[url('/static/images/profil.png')] bg-contain bg-center bg-no-repeat w-[200px] h-[200px] flex items-center justify-center">
+    <img src="/static/gif/anim{{avatar| safe}}" class="w-[120px] h-[120px]">
+
+  </div>
+
+  <div >
+    <a class="dinoname">{{blaze | safe}}</a>
+  </div>
+<br>  
+  <a href="/myaccount" class="shadow bg-[#72A603] hover:bg-green-800 focus:shadow-outline focus:outline-none text-white font-bold py-2 px-4 rounded">Retournes au profil pour le contempler sous un autre angle</a>
+{% endblock %}

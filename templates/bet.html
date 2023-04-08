@@ -1,0 +1,62 @@
+{% extends "base.html" %}
+{% block main %}
+    <h1>PARIS DINO</h1>
+ <div class="paragraph">
+<p >
+
+      <span> 
+        Pariez sur le vainqueur de la compétition de Dino. </span>
+  </p>
+</div>
+<br>
+<h1>Combat 1</h1>
+<form action="/registerbet/1" class = "w-full max-w-sm flex flex-col justify-center items-center">
+  <div class="md:flex md:items-center mb-6 ">
+    <br>
+      <input name = "bet" placeholder= "Mise" class="bg-gray-200 appearance-none border-2 border-gray-200 rounded w-full py-2 px-4 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-green-500 text-center" id="inline-full-name" type="number">
+  </div>
+  <div class="flex justify-center w-[407px] px-10 py-10 items-center">
+    <input type="submit" class="button-paris" name="Rouge" role="button" value="Rouge" >
+    <div class="divider"></div>
+    <input type="submit" class="button-paris" name="Bleu" role="button" value="Bleu">
+    </div> 
+  <br>
+</form>
+  
+
+<br>
+<h1>Combat 2</h1>
+<form action="/registerbet/2" class = "w-full max-w-sm flex flex-col justify-center items-center">
+  <div class="md:flex md:items-center mb-6 ">
+    <br>
+      <input name = "bet" placeholder= "Mise" class="bg-gray-200 appearance-none border-2 border-gray-200 rounded w-full py-2 px-4 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-green-500 text-center" id="inline-full-name" type="number">
+  </div>
+  <div class="flex justify-center w-[407px] px-10 py-10 items-center">
+    <input type="submit" class="button-paris" name="Rouge" role="button" value="Rouge" >
+    <div class="divider"></div>
+    <input type="submit" class="button-paris" name="Bleu" role="button" value="Bleu">
+    </div> 
+  <br>
+</form>
+
+
+<div class="paragraph">
+  <p >
+    Nombre d'os pariés <br>
+      <span class="p7">{{mt | safe}} </span>
+  </p>
+</div>
+
+<br>
+
+<h1>Regles</h1>
+<div class="paragraph">
+  <p >
+      <span> 
+        Vous ne perdrez pas d'os dans le cas d'un pari perdant, profitez en. Un seul pari par personne est autorisé.
+      </span>
+  </p>
+</div>
+</div>
+</div>
+{% endblock %}

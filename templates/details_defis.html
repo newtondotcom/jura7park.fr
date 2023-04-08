@@ -1,0 +1,27 @@
+{% extends "base.html" %}
+{% block main %}
+
+<h1>Mes Defis</h1>
+
+<div class="table-wrapper paragraph">
+  <table class="fl-table">
+    <thead>
+    <tr>
+        <th>Défi</th>
+        <th>Montant</th>
+        <th>Date</th>
+    </tr>
+    </thead>
+    <tbody>
+      {%  for post in recent_challenges %}
+    <tr>
+        <td>{{ post.defi | safe }}</td>
+        <td>{{ post.montant| safe }}</td>
+        <td>{{ post.date| safe }}</td>
+    </tr>
+      {% endfor %}
+  </tbody>
+  </table>
+</div> 
+
+{% endblock %}

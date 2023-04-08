@@ -1,0 +1,15 @@
+{% load static %}
+<!DOCTYPE html>
+<html>  
+<head>
+    <title>Jura7park - carré</title>
+</head>
+<body>
+    <h1>Le QR code a été genêré</h1>
+    <p>Il est dispo au lien suivant : <a href="{{url | safe}}">{{url}}</a> </p>
+    <img src="{{url| safe}}" alt="QR Code">
+
+    <h2> <a href="/createcodeqr">Revenir à la création</a> </h2>
+</body>
+
+</html>

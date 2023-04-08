@@ -1,0 +1,17 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+    <title>QR Code Generator</title>
+</head>
+<body>
+    <h1>QR Code Generator</h1>
+      <form action="/codeqrcreated"> 
+        <label>Montant :</label>
+        <input type="text" name="montant" value="{{requests.GET.montant}}"> <br>
+        <label>Nombre d'utilisation :</label>
+        <input type="text" name="nb"> <br>
+        <button type="submit">Afficher le lien</button>
+      </from>
+</body>
+</html>

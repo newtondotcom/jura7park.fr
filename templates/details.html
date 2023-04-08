@@ -1,0 +1,27 @@
+{% extends "base.html" %}
+{% block main %}
+
+<h1>Mes achats</h1>
+
+<div class="table-wrapper paragraph">
+  <table class="fl-table">
+      <thead>
+        <tr>
+          <th>Achats</th>
+          <th>Date</th>
+          <th>Prix</th>
+      </tr>
+      </thead>
+      <tbody>
+        {%  for post in recent_buyings %}
+      <tr>
+          <td>{{ post.produit.title }}</td>
+          <td>{{ post.date }}</td>
+          <td>{{ post.produit.price }}</td>
+      </tr>
+        {% endfor %}
+    </tbody>
+    </table>
+</div> 
+
+{% endblock %}

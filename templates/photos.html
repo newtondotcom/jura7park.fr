@@ -1,0 +1,9 @@
+{% extends "base.html" %}
+{% block main %}
+{% load static %}
+<h1>Albums</h1>
+    {% for photo in photos %}
+    <a href="{{ photo.lien | safe}}"> {{ photo.legende | safe}}</a> <br>
+    {% endfor %}
+
+    {% endblock %}

@@ -1,0 +1,20 @@
+{% extends "base.html" %}
+{% load static %}
+{% block main %}
+            <h1>T'as bien achete {{objet| safe}} pour <span class="p7">{{prix| safe}}</span> points, merci a toi ! ROOOOOARARR</h1>
+            <img src="{{url| safe}}" alt="Image de l'objet" width="200" height="200"> <br>
+            <input type="submit" value="Retour au menu" onclick="window.location.href='/'" class ='button-paris'>  
+        </div>
+    <br>
+
+<form class="w-full max-w-sm flex flex-col justify-center items-center">
+
+ 
+  <div class="md:flex md:items-center">
+
+  </div>
+</form>
+
+<br>
+{% endblock %}
+

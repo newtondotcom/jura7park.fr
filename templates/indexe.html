@@ -1,0 +1,75 @@
+{%load static%}
+<!DOCTYPE html>
+<html lang="en" >
+<head>
+  <meta charset="UTF-8">
+  <title>Jura7park - home</title>
+  <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css'> 
+  <link rel="stylesheet" href="{%static '/css/scoreboard3.css'%}">
+
+</head>
+<body>
+  <h1>{{montantot | safe }} jetons misés au total</h1> <br>
+<form action="registerbet/1/"> {% csrf_token %}
+  <input type="text" name="montant">
+  <input type="submit" value="Miser sur le dino bleu">
+</form> <br>
+<form action="registerbet/1/"> {% csrf_token %}
+  <input type="text" name="montant">
+  <input type="submit" value="Miser sur le dino rouge">
+</form>
+
+
+<div class="card one">
+  <div class="header">
+    <i> </i>
+    <h3 class="title">Leaderboard</h3>
+    <div></div>
+  </div>
+  <!--
+  <div class="sort">
+    <div class="day">Today</div>
+    <div class="day active">Week</div>
+    <div class="day">Month</div>
+  </div>
+  -->
+  <div class="profile">
+    <div class="person second">
+      <div class="num">2</div>
+      <i class="fas fa-caret-up"></i>
+      <img src="{{avatar2}}" alt="" class="photo">
+      <p class="link">{{name2}}</p>
+      <p class="points">{{point2}}</p>
+    </div>
+    <div class="person first">
+      <div class="num">1</div>
+      <i class="fas fa-crown"></i>
+      <img src="{{avatar1}}" alt="" class="photo main">
+      <p class="link">{{name1}}</p>
+      <p class="points">{{point1}}</p>
+    </div>
+    <div class="person third">
+      <div class="num">3</div>
+      <i class="fas fa-caret-up"></i>
+      <img src="{{avatar3}}" alt="" class="photo">
+      <p class="link">{{name3}}</p>
+      <p class="points">{{point3}}</p>
+    </div>
+  </div>
+  <div class="rest">
+    <div class="others flex">
+      <div class="rank">
+        <i class="fas fa-caret-up"></i>
+        <p class="num">4</p>
+      </div>
+      <div class="info flex">
+        <img src="{{avatar4}}" alt="" class="p_img">
+        <p class="link">{{name4}}</p>
+        <p class="points">{{point4}}</p>
+      </div>
+    </div>
+  </div>
+</div>
+  
+</body>
+</html>

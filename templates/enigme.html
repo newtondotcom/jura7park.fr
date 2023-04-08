@@ -1,0 +1,28 @@
+{% extends "base.html" %}
+{% block main %}
+  
+<h1 >ENIGME J{{Xok | safe}}</h1>
+ <div class="paragraph">
+  <p >
+    <br>
+    <br>
+        Entrez ci-dessous la réponse à l'énigme du jour.
+        <br><br>
+  </p>
+</div>
+
+<form class="w-full max-w-sm flex flex-col justify-center items-center" action="/repenigme" > {% csrf_token %}
+  <div class="md:flex md:items-center mb-6 ">
+      <input type="hidden" name="jour" id="jour" value="{{Xok | safe}}">
+      <input class="bg-gray-200 appearance-none border-2 border-gray-200 rounded w-full py-2 px-4 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-green-500" id="inline-full-name" type="text" name="reponse">
+  </div>
+
+  <div class="md:flex md:items-center">
+      <input class="shadow bg-[#72A603] hover:bg-green-400 focus:shadow-outline focus:outline-none text-white font-bold py-2 px-4 rounded" type="submit" value="Répondre">
+      </input>
+
+  </div>
+</form>
+</div>
+</div>
+{% endblock %}
