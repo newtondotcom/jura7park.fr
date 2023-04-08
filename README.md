@@ -2,12 +2,7 @@
 
 ## Languages used
 
-<img alt="Python" src="https://img.shields.io/badge/-Python-23272A?style=flat&logo=python">
-<img alt="HTML5" src="https://img.shields.io/badge/-HTML5-23272A?style=flat&logo=html5">
-<img alt="CSS3" src="https://img.shields.io/badge/-CSS3-23272A?style=flat&logo=css3">
-<img alt="JavaScript" src="https://img.shields.io/badge/-JavaScript-23272A?style=flat&logo=javascript">
-<img alt="SQL" src="https://img.shields.io/badge/-SQL-23272A?style=flat&logo=postgresql">
-<img alt="Markdown" src="https://img.shields.io/badge/-Markdown-23272A?style=flat&logo=markdown">
+<img alt="Python" src="https://img.shields.io/badge/-Python-23272A?style=flat&logo=python"> <img alt="HTML5" src="https://img.shields.io/badge/-HTML5-23272A?style=flat&logo=html5"> <img alt="CSS3" src="https://img.shields.io/badge/-CSS3-23272A?style=flat&logo=css3"> <img alt="JavaScript" src="https://img.shields.io/badge/-JavaScript-23272A?style=flat&logo=javascript"> <img alt="SQL" src="https://img.shields.io/badge/-SQL-23272A?style=flat&logo=postgresql"> <img alt="Markdown" src="https://img.shields.io/badge/-Markdown-23272A?style=flat&logo=markdown">
 
 ## Description
 Website of the student list Jura7park of the ENSEEIHT, a French engineering school. should be still alive [here](https://jura7park.fr).
