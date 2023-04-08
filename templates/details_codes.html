@@ -1,0 +1,26 @@
+{% extends "base.html" %}
+{% block main %}
+
+<h1>Mes codes</h1>
+
+<div class="table-wrapper paragraph">
+  <table class="fl-table">
+    <thead>
+    <tr>
+        <th>Montant</th>
+        <th>Date</th>
+    </tr>
+    </thead>
+    <tbody>
+        {%  for post in recent_qrcode %}
+    <tr>
+        <td>{{ post.title }}</td>
+        <td>{{ post.dateutil}}</td>
+    </tr>
+      {% endfor %}
+
+  </tbody>
+  </table>
+</div> 
+
+{% endblock %}

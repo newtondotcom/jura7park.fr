@@ -6,6 +6,7 @@ class paris(models.Model):
     date = models.DateTimeField(auto_now_add=True)
     mise = models.IntegerField()
     gagnant = models.IntegerField()
+    numero = models.IntegerField(null = True, blank = True)
     is_paid = models.BooleanField(default=False)
     
     def __str__(self):

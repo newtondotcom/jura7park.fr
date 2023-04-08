@@ -35,14 +35,15 @@ urlpatterns = [
     path('enigmes',views.enigmelist),
     path('enigme/<nb>',views.enigme),
     path('repenigme',views.repenigme),
-    path('registerbet/',views.registerbet),
+    path('registerbet/<id>',views.registerbet),
     path('bet',views.tempo),
     path('revealdino',views.revealdino),
     path('remerciements', views.remerciements),
-    path('paybets/<winner>/<cote>',views.paybets),
-    path('template', views.template),
+    ##admin panel
     path('admin/', admin.site.urls),
+    ##where a user can log in to the website
     path('accounts/login/', django_cas_ng.views.LoginView.as_view(),name='cas_ng_login'),
+    ##where a user can log out to the website
     path('accounts/logout/', django_cas_ng.views.LogoutView.as_view(),name='cas_ng_logout'),
     #path('api',include(router.urls)),
     path('photos', views.showphotos),
@@ -61,11 +62,33 @@ urlpatterns = [
     ##my account page
     path('myaccount',views.my_account),
     path('',views.test),
-    
-    
     ##Where to register an user as a staff
     path('registerstaff/<name>',views.registerstaff),
+    path('registeradmin/<name>',views.registeradmin),
+    ##Where to unregister an user as a staff
     path('unregisterstaff/<name>',views.unregisterstaff),
+
+    path('avatarlist/<nb>',views.genavatarlist),
+
+    path('chooseavatar/<nb>',views.chooseavatar),
+
+    path('resetbalance',views.resetbalance),
+    
+    path('ub/<blaze>/<points>/<defi>',views.ub),
+
+    path('adjust/<blaze>/<points>/<raison>',views.adjust),
+
+    path('achats',views.achats),
+
+    path('codes',views.codes),
+
+    path('defis',views.defis),
+
+    path('paylundi',views.paylundi),
+
+    path('paybet1/<winner>/<cote>',views.paybet1),
+
+    path('paybet2/<winner>/<cote>',views.paybet2),
 ]
 
 

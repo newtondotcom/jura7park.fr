@@ -1,0 +1,25 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: jura7
+  namespace: jura7
+  annotations:
+    kubernetes.io/ingress.class: "nginx"
+    cert-manager.io/cluster-issuer: letsencrypt-prod
+    nginx.ingress.kubernetes.io/proxy-body-size: 105m
+spec:
+  rules:
+    - host: jura7park.fr
+      http:
+        paths:
+          - path: /
+            pathType: Prefix
+            backend:
+              service:
+                name: jura7
+                port:
+                  name: http
+  tls:
+    - hosts:
+        - jura7park.fr
+      secretName: jura7-tls

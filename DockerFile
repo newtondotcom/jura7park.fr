@@ -1,10 +1,10 @@
-# syntax=docker/dockerfile:1.4
-
-FROM --platform=$BUILDPLATFORM python:3.7-slim AS builder
-EXPOSE 8000
-#ou les commande s'execute
-WORKDIR /app 
-COPY . /app 
-RUN pip3 install -r requirements.txt --no-cache-dir
-
-CMD ["python", "manage.py", "runserver", "0.0.0.0:8000"] 
+FROM python:3
+ENV PYTHONUNBUFFERED=1
+WORKDIR /code
+COPY requirements.txt /code/
+RUN pip install -r requirements.txt
+COPY . /code/
+EXPOSE 80
+COPY ./starte.sh /code/
+RUN chmod +x /code/starte.sh
+ENTRYPOINT ["/code/starte.sh"]

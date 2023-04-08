@@ -23,3 +23,11 @@ def send_message(message):
     url = 'https://discord.com/api/webhooks/1078313459319590994/thxGGDNqfZinhkh5Yu98IKepLuiagCwCzlaeCRnqfGE6H8In1ET0IldaLUA_Dr2lyjWk'
     webhook = DiscordWebhook(url=url,content=message)
     response = webhook.execute()
+
+def send_defi(payeur,beneficiaire,defi,montant):
+    url = 'https://discord.com/api/webhooks/1079472266670256250/0zh8Bo4cGGWy0PTo7p5KbrmUdABxSwl9uh65m3q7q7TiJWZVUuVWzobYKuqkGO5vNJIV'
+    message = str(payeur) + " a validé le défi " + str(defi) + " pour " + str(beneficiaire) + " avec "+ str(montant) + " points"
+    webhook = DiscordWebhook(url=url,content=message)
+    embed = DiscordEmbed(title='Validation du défi' + str(defi), description= str(montant) + " pour " + str(beneficiaire), color='03b2f8')
+    webhook.add_embed(embed)
+    response = webhook.execute()

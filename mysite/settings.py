@@ -22,15 +22,8 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 # SECURITY WARNING: keep the secret key used in production secret!
 SECRET_KEY = '-8p9^m3_@w1(ys$9dw1%^+@)zd&am^+x_6!7z#q*3zjysc(906'
 
-# SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
 
-ALLOWED_HOSTS = [
-    'django-cas-ng-demo.herokuapp.com',
-    'localhost',
-    '127.0.0.1',
-    'jura7park.fr',
-]
+ALLOWED_HOSTS = ['*']
 
 
 # Application definition
@@ -53,12 +46,15 @@ INSTALLED_APPS = [
     'paris.apps.ParisConfig',
     'photos.apps.PhotosConfig',
     'repenigmes.apps.RepenigmesConfig',
-    'events.apps.EventsConfig'
+    'events.apps.EventsConfig',
+    'stockavatar.apps.StockavatarConfig',
+    'histodefis.apps.HistodefisConfig',
 ]
 
 REST_FRAMEWORK = {
     'DEFAULT_FILTER_BACKENDS': ['django_filters.rest_framework.DjangoFilterBackend'],
 }
+
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
@@ -101,24 +97,29 @@ WSGI_APPLICATION = 'mysite.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/3.0/ref/settings/#databases
 
+
+CAS_SERVER_URL = 'CAS_ADDRESS'
+CAS_VERSION = '3'
+#CAS_ADMIN_PREFIX = '/admininistration/'
+
+# SECURITY WARNING: don't run with debug turned on in production!
+DEBUG = True
+
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+       'ENGINE': 'django.db.backends.sqlite3',
+      'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
     }
-        #'default': {
-        #'ENGINE': 'django.db.backends.mysql',
-        #'NAME': 'sql7588844',
-        #'USER': 'sql7588844',
-        #'PASSWORD': '3f6BhFC8Cl',
-        #'HOST': 'sql7.freemysqlhosting.net',
-        #'PORT': '3306',
-    #}
+      #  'default': {
+       #  'ENGINE': 'ENGINE',
+      #    'NAME': 'NAME',
+      #  'USER': 'USER',
+      #   'PASSWORD': 'PASSWORD',
+       #   'HOST': 'HOST',
+      #    'PORT': 'PORT',
+     # }
 }
 
-
-# Password validation
-# https://docs.djangoproject.com/en/3.0/ref/settings/#auth-password-validators
 
 AUTH_PASSWORD_VALIDATORS = [
     {
@@ -135,9 +136,6 @@ AUTH_PASSWORD_VALIDATORS = [
     },
 ]
 
-CAS_SERVER_URL = 'https://cas.dev.inpt.fr/'
-CAS_VERSION = '3'
-#CAS_ADMIN_PREFIX = '/admininistration/'
 
 
 # Internationalization
@@ -158,12 +156,12 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/3.0/howto/static-files/
 
 STATIC_URL = '/static/'
-STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles/')
+STATIC_ROOT = os.path.join(BASE_DIR, 'static/')
 
 STATICFILES_DIRS = [
-    os.path.join(BASE_DIR, 'static/'),
+    os.path.join(BASE_DIR, 'staticfiles/'),
 ]
 
-MEDIA_ROOT = os.path.join(BASE_DIR, 'static/images')
+MEDIA_ROOT = os.path.join(BASE_DIR, 'staticfiles/images')
 MEDIA_URL = os.path.join(BASE_DIR, 'static/images/')
 

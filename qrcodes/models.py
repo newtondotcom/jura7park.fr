@@ -9,7 +9,7 @@ class codeqr(models.Model):
     points = models.IntegerField()
     utilise = models.BooleanField()
     code=models.CharField(max_length=100,null=True, blank=True)
-    is_public = models.BooleanField(default=False)
+    nb_utilisation = models.IntegerField(default=1)
     lien = models.CharField(max_length=100,null=True, blank=True)
 
     def __str__(self):

@@ -1,7 +1,7 @@
 {% extends "base.html" %}
 {% block main %}
 {%load static %}
-    <h1>Veux-tu utiliser ce code de <span class="paragraph" font="/static/font/epilogue.tff"> <font size="70">{{prix| safe}}</font></span> points ?</h1>
+    <h1>Veux-tu utiliser ce code de <span class="p7">{{prix| safe}}</span> points ?</h1>
     <form action="/validatedqrcode/{{key|safe}}" method="post">  {% csrf_token %}
         <div class="flex justify-center"></div>
         <input type="submit" value="Oui"  class="button-paris align-left">

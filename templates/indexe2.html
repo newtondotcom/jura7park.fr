@@ -1,34 +1,48 @@
 {% extends "base.html" %}
 {% block main %}
 {% load static %}
-  <h1>PLANNIG DU JOUR</h1>
+  <h1>PLANNING DU JOUR</h1>
  <div class="paragraph">
-  <p >
-        Matin ({{matin.horaires| safe}}) : <br> {{matin.nom| safe}}  <br> <br>
-        Midi ({{midi.horaires| safe}}) : <br>   {{midi.nom| safe}} <br> <br>
-        Après-midi ({{aprem.horaires| safe}}) :  <br> {{aprem.nom| safe}}<br> <br>
-        Soir ({{soir.horaires| safe}}) :  <br>{{soir.nom| safe}}<br>
-  </p>
+  <dl>
+    {%if matins|length  > 0 %}
+        <dt>Matin </dt><dd> 
+    {%for matin in matins %}
+          <dt>{{matin.horaires| safe}} </dt>{{matin.nom| safe}}   
+    {%endfor%} </dd>
+    {%endif%}
+    
+    {%if midi|length  > 0 %}
+    <dd></dd>
+        <dt>Midi </dt><dd> 
+    {%for matin in midi %}
+          <dt>{{matin.horaires| safe}} </dt>{{matin.nom| safe}}   
+    {%endfor%} </dd>
+    {%endif%}
+
+    {%if aprem|length  > 0 %}
+    <dd></dd>
+        <dt>Après-midi </dt><dd> 
+    {%for matin in aprem %}
+          <dt>{{matin.horaires| safe}} </dt>{{matin.nom| safe}}   
+    {%endfor%} </dd>
+    {%endif%}
+
+    {%if soir|length  > 0 %}
+    <dd></dd>
+        <dt>Soir</dt><dd> 
+    {%for matin in soir %}
+          <dt>{{matin.horaires| safe}} </dt>{{matin.nom| safe}}   
+    {%endfor%} </dd>
+    {%endif%}
+  </dl>
 </div>
 <br>
 
-
-
-<!-- 
-<h1>ACTIVITES DU JOUR </h1>
-<div class="w-[407px] text-center flex text-lg flex-col">
-  <div class="paragraph">
-    <p >
-        <span> 
-          Retrouvez votre équipe au Foy pour rattraper les dinosaures le plus vite possible</span>
-    </p>
-  </div>
--->
   <br>
-  <div class="w-[407px] text-center flex text-lg items-center justify-center">
-    
+  <div class="liens w-[407px] text-center flex text-lg items-center justify-center">
+
   <div class="flex flex-col items-center justify-center">
-    
+
     <a href="photos"><img src="/static/images/images.svg" class="menuim"></a>
     <p class="paragraph">Images</p>
   </div>
@@ -44,14 +58,16 @@
 
   </div>
 <br>
-<h1>REMERCIEMENTS </h1>
+<h1 class="remerciements">REMERCIEMENTS </h1>
 <div class="paragraph flex flex-col items-center justify-center">
   <p class="flex flex-col items-center justify-center">
     <br>
         Partenaire jeux de société  <br><br>
         <a href="https://www.jeuxdumonde.fr/"><img src = "/static/images/partenariat.png"></a>
-        <div class="clear"><br><br></div>
-        Créateurs du site <a class="shadow bg-[#72A603] hover:bg-green-800 focus:shadow-outline focus:outline-none text-white font-bold py-2 px-4 rounded " href="/remerciements">Voir</a>
+        <div class="clear"><br></div>
+        <a href="https://arkose.com/toulouse/">Arkose</a>
+        <div class="clear"><br></div>
+        Créateurs du site <a class="button-createurs shadow bg-[#72A603] hover:bg-green-800 focus:shadow-outline focus:outline-none text-white font-bold py-2 px-4 rounded " href="/remerciements">Voir</a>
   </p>
 
 </div>
