@@ -38,7 +38,7 @@ def shop(request,nb):
   return render(request, 'shop.html',{"tab" : get_shop(int(nb),modulo),"string":string})
 
 def test(request):
-  if str(datetime.datetime.now())[:11]==str(datetime.datetime(2023, 3, 3))[:11]:
+  if str(datetime.datetime.now())[:11]==str(datetime.datetime(2023, 3, 3))[:11] or True:
     parisss = """
       <div class="flex flex-col items-center justify-center">
     <a href="bet"><img src="/static/images/bet.svg" class="menuim"></a>
@@ -435,3 +435,6 @@ def paybet2(request,winner,cote):
 
 
 ####SQL REQUEST CODEQR le 26 : SELECT qrcodes_codeqr.dateutil,auth_user.username,sum(qrcodes_codeqr.points) , COUNT(*) FROM qrcodes_codeqr ,auth_user WHERE qrcodes_codeqr.utilisateur_id = auth_user.id and SUBSTR(qrcodes_codeqr.dateutil,9,2)= 26 group by auth_user.username HAVING COUNT(*)>2
+
+def offline(request):
+  return message_error("L'appli n'est pas connectée à Internet",'/','Désolé')

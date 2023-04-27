@@ -14,7 +14,7 @@ Including another URLconf
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
 from django.contrib import admin
-from django.urls import path, include
+from django.urls import path, include, re_path
 import django_cas_ng.views
 from django.conf import settings
 from django.views.static import serve
@@ -61,7 +61,13 @@ urlpatterns = [
     path('validatedqrcode/<name2>',views.validatedqrcode),
     ##my account page
     path('myaccount',views.my_account),
-    path('',views.test),
+    
+   
+    path('', include('pwa.urls')),
+    #path('',views.test),  
+    
+    path('offline', views.offline), 
+    
     ##Where to register an user as a staff
     path('registerstaff/<name>',views.registerstaff),
     path('registeradmin/<name>',views.registeradmin),

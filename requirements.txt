@@ -9,3 +9,4 @@ discord_webhook
 mysqlclient
 psycopg2-binary
 uwsgi
+django-pwa
