@@ -62,11 +62,8 @@ urlpatterns = [
     ##my account page
     path('myaccount',views.my_account),
     
-   
-    path('', include('pwa.urls')),
     #path('',views.test),  
     
-    path('offline', views.offline), 
     
     ##Where to register an user as a staff
     path('registerstaff/<name>',views.registerstaff),
@@ -95,6 +92,9 @@ urlpatterns = [
     path('paybet1/<winner>/<cote>',views.paybet1),
 
     path('paybet2/<winner>/<cote>',views.paybet2),
+    
+    path('', include('pwa.urls')),
+    path('offline', views.offline), 
 ]
 
 

@@ -96,7 +96,6 @@ def tempo(request):
     mt = 0
   return render(request, 'bet.html',{"mt":mt})
 
-from .gen_ldb import *
 
 def leaderboard(request):
   context = {"joueurs" :get_x_prems()}
