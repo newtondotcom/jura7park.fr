@@ -5,6 +5,6 @@ COPY requirements.txt /code/
 RUN pip install -r requirements.txt
 COPY . /code/
 EXPOSE 80
-COPY ./starte.sh /code/
-RUN chmod +x /code/starte.sh
-ENTRYPOINT ["/code/starte.sh"]
+COPY ./entrypoint.sh /code/
+RUN chmod +x /code/entrypoint.sh
+ENTRYPOINT ["/code/entrypoint.sh"]
