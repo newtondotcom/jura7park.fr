@@ -18,3 +18,6 @@ This project took place during the 2023 winter semester (january and februry). I
 
 ## Experience
 This was my first time using Django and I have learned a lot about it. It is such a powerful framework and I am really happy to have used it. Its main strenght is the easy database management. Django allow universal support with a lot of database management system (MySQL, PostgreSQL, SQLite, Oracle, etc.) and provides a simple admin panel to manage the database.
+
+## Features added
+I recently added WPA and WebPush compatibility to the app. It is now fully Docker ready.
