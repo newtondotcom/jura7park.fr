@@ -1,3 +1,6 @@
-__init__.py
 __pycache__
+__pycache__/
 migrations
+migrations/
+db.sqlite3
+user_augerer2.sql

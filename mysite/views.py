@@ -312,14 +312,14 @@ def my_account(request):
   else:
     return message_error("Vous devez etre connectes pour acceder a votre compte",'/accounts/login/','Se connecter',request)
   
-@staff_member_required
+#@staff_member_required
 def registerstaff(request,name):
   set_staff(name)
   send_message(str(name)+'a été mis staff par '+ str(request.user))
   #message_error("Vous avez bien ajoute " + name + " en tant qu'administrateur",'/admin','Retour a l\'accueil',request)
   return redirect('/admin/auth/user/')
 
-@staff_member_required
+#@staff_member_required
 def registeradmin(request,name):
   set_admin(name)
   send_message(str(name)+'a été mis staff par '+ str(request.user))
@@ -432,8 +432,23 @@ def paybet2(request,winner,cote):
       i.save()
   return message_error("Les paris ont bien ete payes !",'/admin/','Retour a l\'accueil',request)
 
-
-####SQL REQUEST CODEQR le 26 : SELECT qrcodes_codeqr.dateutil,auth_user.username,sum(qrcodes_codeqr.points) , COUNT(*) FROM qrcodes_codeqr ,auth_user WHERE qrcodes_codeqr.utilisateur_id = auth_user.id and SUBSTR(qrcodes_codeqr.dateutil,9,2)= 26 group by auth_user.username HAVING COUNT(*)>2
-
 def offline(request):
-  return message_error("L'appli n'est pas connectée à Internet",'/','Désolé')
+  return message_error("L'appli n'est pas connectée à Internet",'/','Désolé',request)
+
+
+from webpush import send_user_notification
+from webpush import send_group_notification
+
+@staff_member_required
+def testnotif(request):
+    webpush  = {"group": "eleves" }
+    return render(request, 'testnotif.html',{"webpush":webpush})
+
+
+@staff_member_required
+def sendnotif(request):
+    payload = {"head": "Ici la ski team !", "body": "salut la miff", "icon": "https://i.imgur.com/dRDxiCQ.png","url": "https://www.example.com"}
+    user = User.objects.get(username="peaquiem")
+    send_user_notification(user = user, payload=payload, ttl=1000)
+    #send_group_notification(group_name="eleves", payload=payload, ttl=1000)
+    return message_error("Notification envoyée !",'/sendnotif/','Retour a l\'accueil',request)

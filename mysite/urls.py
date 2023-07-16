@@ -20,6 +20,7 @@ from django.conf import settings
 from django.views.static import serve
 from . import views
 from rest_framework import routers
+from django.views.generic import TemplateView
 
 
 from points.urls import router as points_router
@@ -28,7 +29,11 @@ router.registry.extend(points_router.registry)
 
 
 urlpatterns = [
-    #path('', views.index, name='index'),
+    ##where a user can log in to the website
+    path('accounts/login/', django_cas_ng.views.LoginView.as_view(), name='cas_ng_login'),
+    ##where a user can log out to the website
+    path('accounts/logout/', django_cas_ng.views.LogoutView.as_view(), name='cas_ng_logout'),
+    
     path('ping', views.ping, name='ping'),
     path('shop/<nb>', views.shop),
     path('ld',views.leaderboard),
@@ -41,10 +46,6 @@ urlpatterns = [
     path('remerciements', views.remerciements),
     ##admin panel
     path('admin/', admin.site.urls),
-    ##where a user can log in to the website
-    path('accounts/login/', django_cas_ng.views.LoginView.as_view(),name='cas_ng_login'),
-    ##where a user can log out to the website
-    path('accounts/logout/', django_cas_ng.views.LogoutView.as_view(),name='cas_ng_logout'),
     #path('api',include(router.urls)),
     path('photos', views.showphotos),
     ##where an admin can create a code qr
@@ -61,40 +62,48 @@ urlpatterns = [
     path('validatedqrcode/<name2>',views.validatedqrcode),
     ##my account page
     path('myaccount',views.my_account),
-    
-    #path('',views.test),  
-    
-    
+
     ##Where to register an user as a staff
     path('registerstaff/<name>',views.registerstaff),
+    ##Where to register an user as a admin
     path('registeradmin/<name>',views.registeradmin),
     ##Where to unregister an user as a staff
     path('unregisterstaff/<name>',views.unregisterstaff),
-
+    ##Show the page nb of saved avatars
     path('avatarlist/<nb>',views.genavatarlist),
-
+    ##Define the current avatar
     path('chooseavatar/<nb>',views.chooseavatar),
-
+    ##Reset balance
     path('resetbalance',views.resetbalance),
-    
+    ##Update the balance of the user blaze with the value points for the reason defi
     path('ub/<blaze>/<points>/<defi>',views.ub),
-
+    ##Adjust the balance of the user blaze with the value points for the reason raison
     path('adjust/<blaze>/<points>/<raison>',views.adjust),
-
+    ##Shows the buying list
     path('achats',views.achats),
-
+    ##Shows the qrcode list
     path('codes',views.codes),
-
+    ##Shows the qrcode list
     path('defis',views.defis),
-
+    ##Pay Monday Bet
     path('paylundi',views.paylundi),
-
+    ##Pay users for bet n1
     path('paybet1/<winner>/<cote>',views.paybet1),
-
+    ##Pay users for bet n2
     path('paybet2/<winner>/<cote>',views.paybet2),
     
-    path('', include('pwa.urls')),
+    ###Notifications
+    path('webpush/', include('webpush.urls')),
+    path('testnotif', views.testnotif),
+    path('sendnotif', views.sendnotif),
+    #path('sw.js', TemplateView.as_view(template_name='slistener.js', content_type='application/x-javascript')),
+
+    ###PWA
     path('offline', views.offline), 
+    
+    ###MUST BE AT THE END
+    path('', include('pwa.urls')),
+    
 ]
 
 
